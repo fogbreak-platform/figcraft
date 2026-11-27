@@ -4,7 +4,7 @@ version.workspace = true
 edition.workspace = true
 license.workspace = true
 rust-version.workspace = true
-description = "FigCraft path operations: booleans (union, subtract, intersect, exclude), outline stroke with inside/center/outside alignment, arrowheads"
+description = "Fogbreak Design path operations: booleans (union, subtract, intersect, exclude), outline stroke with inside/center/outside alignment, arrowheads"
 
 [lints]
 workspace = true

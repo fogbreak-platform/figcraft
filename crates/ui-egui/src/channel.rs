@@ -34,7 +34,7 @@ pub fn is_nightly() -> bool {
 /// The app's name: the window title, About and the launcher's dialog say "FigCraft Nightly" for
 /// the Nightly build, so a window is never mistaken for the stable app's.
 pub fn name() -> &'static str {
-    if is_nightly() { "FigCraft Nightly" } else { "FigCraft" }
+    if is_nightly() { "Fogbreak Design Nightly" } else { "Fogbreak Design" }
 }
 
 /// The commit this Nightly was built from, for its About window and a bug report.
@@ -65,7 +65,7 @@ mod tests {
     fn without_an_installed_identity_the_app_is_the_stable_one() {
         // The other tests and the web build never install an identity.
         assert!(!is_nightly());
-        assert_eq!(name(), "FigCraft");
+        assert_eq!(name(), "Fogbreak Design");
         assert_eq!(version(), crate::dialogs::VERSION);
     }
 }

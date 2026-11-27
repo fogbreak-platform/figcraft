@@ -212,7 +212,7 @@ fn report_launch_profile_error(error: &str) -> ! {
             eprintln!("FigCraft launch profile: {error}");
         } else {
             let _ = rfd::MessageDialog::new()
-                .set_title("FigCraft Nightly")
+                .set_title("Fogbreak Design Nightly")
                 .set_description(error)
                 .set_level(rfd::MessageLevel::Error)
                 .set_buttons(rfd::MessageButtons::Ok)
@@ -234,7 +234,7 @@ fn prepare_launch() -> Option<Vec<std::ffi::OsString>> {
         // Before root validation, logging, the update helper, fonts or any window: a runner reads
         // this line and the process ends. Nothing else may be printed here.
         use std::io::Write as _;
-        let _ = writeln!(std::io::stdout(), "FigCraft {}", build_flavor::version(build_flavor::COMPILED, env!("FIGCRAFT_BUILT_VERSION")));
+        let _ = writeln!(std::io::stdout(), "Fogbreak Design {}", build_flavor::version(build_flavor::COMPILED, env!("FIGCRAFT_BUILT_VERSION")));
         return None;
     }
     let early = launch_profile::parse(argv)
@@ -452,9 +452,9 @@ fn main() -> eframe::Result {
     let nightly_notice = Arc::new(std::sync::atomic::AtomicBool::new(false));
     if previous_unclean || health_warning {
         let message = if previous_unclean {
-            "The previous FigCraft Nightly session did not finish normally. You can report a problem from About. No diagnostics have been sent."
+            "The previous Fogbreak Design Nightly session did not finish normally. You can report a problem from About. No diagnostics have been sent."
         } else {
-            "FigCraft Nightly could not record its session health in its private profile. You can still edit, but detecting an abnormal exit is unavailable."
+            "Fogbreak Design Nightly could not record its session health in its private profile. You can still edit, but detecting an abnormal exit is unavailable."
         };
         with_app(|fig| fig.toast(message));
     }

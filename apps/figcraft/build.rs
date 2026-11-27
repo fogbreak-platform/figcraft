@@ -13,8 +13,6 @@ fn main() {
     println!("cargo::rerun-if-changed=build.rs");
     println!("cargo::rustc-check-cfg=cfg(windows_slim_errors)");
     println!("cargo::rustc-check-cfg=cfg(figcraft_nightly_v1)");
-    println!("cargo::rerun-if-changed=../../assets/app-icon/figcraft.ico");
-    println!("cargo::rerun-if-changed=../../assets/app-icon/figcraft-nightly.ico");
     println!("cargo::rerun-if-env-changed=FIGCRAFT_BUILD_CHANNEL");
     println!("cargo::rerun-if-env-changed=FIGCRAFT_VERSION");
     println!("cargo::rerun-if-env-changed=FIGCRAFT_OVERRIDE_VERSION");
@@ -55,9 +53,9 @@ fn main() {
         if std::path::Path::new(ico).exists() {
             res.set_icon(ico);
         }
-        res.set("ProductName", if nightly { "FigCraft Nightly" } else { "FigCraft" })
-            .set("FileDescription", if nightly { "FigCraft Nightly interface design and prototyping" } else { "FigCraft" })
-            .set("CompanyName", "ArtCraft")
+        res.set("ProductName", if nightly { "Fogbreak Design Nightly" } else { "Fogbreak Design" })
+            .set("FileDescription", if nightly { "Fogbreak Design Nightly interface design and prototyping" } else { "Fogbreak Design" })
+            .set("CompanyName", "Fogbreak")
             .set("OriginalFilename", "figcraft.exe")
             .set("InternalName", "figcraft");
         if nightly {

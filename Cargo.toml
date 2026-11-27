@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/*", "apps/*", "xtask"]
+members = ["crates/*", "apps/*", "xtask", "fogbreak-overlay"]
 # The plugin SDK and examples build for wasm32 in a workspace of their own (`cargo xtask plugins`).
 exclude = ["plugins"]
 # default-members = ["crates/*", "apps/figcraft", "apps/figcraft-cli", "xtask"]
@@ -10,7 +10,7 @@ version = "0.18.1"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 rust-version = "1.95"
-repository = "https://github.com/storytold/figcraft"
+repository = "https://github.com/fogbreak-platform/figcraft"
 
 [workspace.dependencies]
 craft-xml = { version = "0.1.0", git = "https://github.com/storytold/craft-libs", rev = "8fa4db64a9bb943520259ea95331a303ba788f21" }

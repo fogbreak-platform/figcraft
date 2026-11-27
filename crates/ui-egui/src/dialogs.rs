@@ -41,7 +41,7 @@ pub mod variables_panel;
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 /// Where a report goes.
-const ISSUES: &str = "https://github.com/storytold/figcraft/issues";
+const ISSUES: &str = "https://github.com/fogbreak-platform/figcraft/issues";
 
 /// What the desktop app says when its window couldn't open with `error` (no frame was drawn: the
 /// language is the one [`i18n::set`] picked from the preferences). `backend_set`: `WGPU_BACKEND`
@@ -149,25 +149,20 @@ fn about_body(ui: &mut egui::Ui, t: &Tokens) {
             crate::theme::paint_wordmark(ui.painter(), egui::pos2(wordmark.min.x, wordmark.center().y), 18.0, t);
             let version = crate::channel::version();
             ui.label(RichText::new(trf("Version {version}", &[("version", &version)])).color(t.text_secondary));
-            // Which channel this is, and where to report a problem with it: a Nightly is not the
-            // stable app, and its reports need the commit it was built from.
             if crate::channel::is_nightly() {
                 let build = crate::channel::describe();
                 ui.label(RichText::new(build).color(t.text_secondary).font(regular(11.0)));
-                ui.hyperlink_to("Report a problem", "https://github.com/storytold/figcraft/issues/new/choose");
+                ui.hyperlink_to("Report a problem", "https://github.com/fogbreak-platform/figcraft/issues/new/choose");
             }
         });
     });
     ui.add_space(12.0);
-    ui.label(tr(
-        "Interface design and prototyping. A free, open-source, clean-room design tool written from scratch in Rust, part of the ArtCraft Crafting Apps.",
-    ));
+    ui.label("Interface design and prototyping. An open-source, clean-room design tool written from scratch in Rust.");
     ui.add_space(8.0);
-    ui.hyperlink_to("getartcraft.com/apps/figcraft", "https://getartcraft.com/apps/figcraft");
-    ui.hyperlink_to(tr("Join us on Discord"), "https://discord.gg/artcraft");
+    ui.hyperlink_to("fogbreak.io", "https://fogbreak.io");
     ui.add_space(8.0);
     ui.label(
-        RichText::new(tr("Dual-licensed MIT OR Apache-2.0. Made by the ArtCraft team and community.")).color(t.text_secondary).font(regular(11.0)),
+        RichText::new("Dual-licensed MIT OR Apache-2.0.").color(t.text_secondary).font(regular(11.0)),
     );
 }
 
@@ -231,7 +226,7 @@ pub fn show(app: &mut FigApp, ctx: &Context) {
     let t = Tokens::get(ctx);
     if app.ui.about {
         let mut open = true;
-        window(tr("About FigCraft"), ctx).open(&mut open).show(ctx, |ui| {
+        window("About Fogbreak Design", ctx).open(&mut open).show(ctx, |ui| {
             ui.set_width(ABOUT_WIDTH);
             tab_strip(ui, &t, &AboutTab::ALL, AboutTab::label, &mut app.ui.about_tab);
             ui.add_space(12.0);

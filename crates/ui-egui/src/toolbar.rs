@@ -350,7 +350,7 @@ fn help_button(app: &mut FigApp, ui: &mut Ui, canvas: Rect, pill: Rect, t: &Toke
             (tr("Keyboard shortcuts"), "help.shortcuts"),
             (tr("Help page"), "help.page"),
             (tr("Check for updates…"), "help.checkForUpdates"),
-            (tr("About FigCraft"), "help.about"),
+            (tr("About Fogbreak Design"), "help.about"),
         ] {
             if c == "help.checkForUpdates" && !checks {
                 continue;

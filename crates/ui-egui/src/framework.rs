@@ -73,11 +73,9 @@ pub fn headless_context() -> egui::Context {
     ctx
 }
 
-/// Who FigCraft is to the framework's dialogs (the update dialogs show its name and icon).
+/// Who the app is to the framework's dialogs.
 pub(crate) fn host() -> Arc<Host> {
-    let builder = Host::builder(AppInfo { id: "figcraft", name: "FigCraft", version: env!("CARGO_PKG_VERSION") });
-    #[cfg(not(target_arch = "wasm32"))]
-    let builder = builder.icon_png(include_bytes!("../../../assets/app-icon/hicolor/128x128/apps/ai.storyteller.figcraft.png"));
+    let builder = Host::builder(AppInfo { id: "fogbreak-fig", name: "Fogbreak Design", version: env!("CARGO_PKG_VERSION") });
     Arc::new(builder.build())
 }
 
